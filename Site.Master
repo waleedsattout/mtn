@@ -1,0 +1,189 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="MTN.SiteMaster" %>
+<!--
+    
+    
+    151618
+    
+    
+    
+    -->
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - MTN SVU</title>
+    <link href="~/assets/Site.css" rel="stylesheet">
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+</head>
+<body>
+    <div class="right-topbar">
+        <a href="TEST.html" class="split">وظائف MTN</a>
+        <a href="TEST.html" class="split">حلول الأعمال </a>
+
+        <!-- The left part of the bar -->
+        <div class="left-topbar">
+            <!--  for choose Languages  -->
+            <button class="leftbtn">
+                ع
+                    <img src="/assets/images/Globe.png" style="width:16px;vertical-align: middle;"></button>
+            <div class="leftbtn-content">
+                <a>E</a>
+                <a>ع</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-menu" class="">
+        <a href="#menu" id="mobilemenu_icon" style=""></a>
+        <a href="/Home/Index" title="Home" rel="home" id="logo">
+            <img src="/assets/images/logo.png" alt="Home">
+        </a>
+        <div class="canva" id="canva" style="left: -250%;">
+            <ul style="list-style: none;">
+                <li><span class="upperMenu"><a style="padding: 0" href="Home.aspx">الصفحة الرئيسية</a></span></li>
+                <li><span class="upperMenu"><a style="padding: 0" href="Login.aspx">تسجيل الدخول</a></span></li>
+                <li><span class="upperMenu"><a style="padding: 0" href="Register.aspx">اشتراك</a></span></li>
+                <li><span class="upperMenu" style="cursor: no-drop;"><a style="padding: 0; cursor: no-drop;">حول MTN</a></span></li>
+                <li>
+                    <form class="upperMenu Page-Body Registration" method="post">
+                        <input class="mob-input" type="text" id="username" name="username" placeholder="User Name" required="" />
+                        <input class="mob-input" autocomplete="on" id="password" type="password" name="password" placeholder="Password" required="" />
+                        <div class="mob-input" onclick="sendme()">Submit</div>
+                        <div style="display: none" id="hid"></div>
+                    </form>
+                    <script>
+                        function sendme() {
+                            hid = document.getElementById("hid");
+                            user = document.getElementById("username").value;
+                            pass = document.getElementById("password").value;
+                            $.ajax({
+                                url: "/login.aspx",
+                                success: function (response) {
+                                    jQuery('#hid').html(response);
+                                    hid.children[7].children[0].children[5].children[0].value = user;
+                                    hid.children[7].children[0].children[5].children[1].value = pass;
+                                    hid.children[7].children[0].children[6].click()
+                                }
+                            });
+                        }
+                    </script>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="lowhead">
+        <div class="wrapper">
+            <div class="mtnmain">
+                <div class="logo">
+                    <a href="/home">
+                        <img src="/assets/images/logo.png" alt="Home">
+                    </a>
+                </div>
+                <div class="yellowtape">
+                    <!-- services next to MTN logo -->
+                    <div class="drop">
+                        <div class="dropdown">
+                            <!-- the service num1 -->
+                            <button class="dropbutton">المنتجات والخدمات</button>
+                            <!-- menu -->
+                            <div class="dropdown-content">
+                                <a href="#">الخطوط لاحقة الدفع </a>
+                                <hr />
+                                <a href="#">الخطوط مسبقة الدفع</a>
+                                <hr />
+                                <a href="#">الرسائل النصية </a>
+                                <hr />
+                                <a href="#">MTN دليل خدمات </a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <!-- the service num2 -->
+                            <button class="dropbutton">العروض</button>
+                        </div>
+                        <div class="dropdown">
+                            <!-- the service num3-->
+                            <button class="dropbutton">خدمة الزبائن</button>
+                            <!-- menu -->
+                            <div class="dropdown-content">
+                                <a href="#">راسلنا </a>
+                                <hr />
+                                <a href="#">الموزعون</a>
+                                <hr />
+                                <a href="#">الاسئلة الشائعة </a>
+                            </div>
+                        </div>
+                         <div class="dropdown">
+                            <!-- the service num4 -->
+                            <button class="dropbutton">المركز الإعلامي</button>
+                            <!-- menu -->
+                            <div class="dropdown-content">
+                                <a href="#">البيانات الصحفية </a>
+                                <hr />
+                                <a href="#">شؤون المساهمين</a>
+                                <hr />
+                                <a href="#">اعلانات تجارية </a>
+                                <hr />
+                                <a href="#">الحملات الإعلانية</a>
+                                <hr />
+                                <a href="#">المسؤولية الاجتماعية </a>
+                            </div>
+                        </div>
+                       <div class="dropdown">
+                            <!-- the service num5 -->
+                            <button class="dropbutton">MTN حول</button>
+                            <!-- menu -->
+                            <div class="dropdown-content">
+                                <a href="#">من نحن؟</a>
+                                <hr />
+                                <a href="#">التقارير المالية</a>
+                                <hr />
+                                <a href="#">اتصل بنا </a>
+                                <hr />
+                                <a href="#">الشركاء </a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <button class="dropbutton">SVU</button>
+                            <div class="dropdown-content">
+                                <a href="Home.aspx">الصفحة الرئيسية</a>
+                                <hr>
+                                <a href="Login.aspx">تسجيل الدخول</a>
+                                <hr>
+                                <a href="Register.aspx">اشتراك</a>
+                                <hr>
+                                <a href="Out.aspx">تسجيل الخروج</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search">
+                        <input type="text" placeholder="بحث" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+    <footer>
+        <p>
+            &copy;  <%: DateTime.Now.Year %> جميع الحقوق محفوظة MTN   
+        </p>
+    </footer>
+    <script>
+        var canva = document.getElementById("canva");
+        var menu = document.getElementById("mobilemenu_icon");
+        menu.addEventListener("click", function () {
+            if (canva.hasAttribute("show")) {
+                canva.style = 'left:-180%';
+                canva.removeAttribute("show");
+            } else {
+                canva.style = '';
+                canva.setAttribute("show", "");
+            }
+        })
+    </script>
+    <script src="/assets/jq.js"></script>
+</body>
+</html>
